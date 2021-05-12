@@ -49,6 +49,5 @@ export class EmployeeAddComponent implements OnInit {
     this.positionInputRef.nativeElement.value = '';
     this.addressInputRef.nativeElement.value = '';
     this.phoneInputRef.nativeElement.value = '';
-    console.log('onAddItem');
   }
 }
