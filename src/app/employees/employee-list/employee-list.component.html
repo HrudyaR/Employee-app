@@ -1,0 +1,51 @@
+<div class="my-5">
+  <div class="float-start">
+    <h3>Employees</h3>
+  </div>
+  <div class="float-end">
+    <button
+      class="btn btn-secondary me-1"
+      type="button"
+      (click)="onAddEmployee()"
+    >
+      Add New Employee
+    </button>
+  </div>
+  <br />
+</div>
+<div class="row">
+  <div class="col-4">
+    <ul class="list-group">
+      <li
+        #listItemElem
+        class="list-group-item"
+        (click)="onSelected(employee, $event)"
+        [employee]="employee"
+        *ngFor="let employee of employees"
+      >
+        <p>
+          <strong>{{ employee.name }}</strong>
+        </p>
+        <p>{{ employee.position }}</p>
+        <button
+          class="btn btn-danger delete-btn"
+          (click)="onDeleted(employee, $event)"
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-8">
+    <div class="employee-form">
+      <app-employee-details
+        [selectedEmployee]="selectedEmployee"
+        *ngIf="loadedFeature !== 'new'"
+      ></app-employee-details>
+      <app-employee-add
+        (employeeAdded)="onEmployeeAdded($event)"
+        *ngIf="loadedFeature === 'new'"
+      ></app-employee-add>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
+
+.list-group {
+  border-radius: 0;
+}
+
+.list-group li {
+  border: 0;
+  background-color: #ccc;
+  margin-bottom: 10px;
+  padding: 15px 15px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  position: relative;
+}
+
+.list-group li:hover,
+.list-group li.selected {
+  background-color: #ececec;
+}
+
+.list-group li p {
+  margin: 0;
+}
+
+.list-group li .delete-btn {
+  position: absolute;
+  right: 15px;
+  top: 30px;
+  font-size: 10px;
+}
+
+.employee-form {
+  padding: 20px;
+  background-color: #ececec;
+}
