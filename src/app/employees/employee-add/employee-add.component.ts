@@ -38,16 +38,25 @@ export class EmployeeAddComponent implements OnInit {
     const empPosition = this.positionInputRef.nativeElement.value;
     const empAddress = this.addressInputRef.nativeElement.value;
     const empPhone = this.phoneInputRef.nativeElement.value;
-    const newEmployee = new Employee(
-      empName,
-      empAddress,
-      empPhone,
-      empPosition
-    );
-    this.employeeAdded.emit(newEmployee);
-    this.nameInputRef.nativeElement.value = '';
-    this.positionInputRef.nativeElement.value = '';
-    this.addressInputRef.nativeElement.value = '';
-    this.phoneInputRef.nativeElement.value = '';
+    if (
+      empName === '' ||
+      empPosition === '' ||
+      empAddress === '' ||
+      empPhone === ''
+    ) {
+      alert('Please enter all details!');
+    } else {
+      const newEmployee = new Employee(
+        empName,
+        empAddress,
+        empPhone,
+        empPosition
+      );
+      this.employeeAdded.emit(newEmployee);
+      this.nameInputRef.nativeElement.value = '';
+      this.positionInputRef.nativeElement.value = '';
+      this.addressInputRef.nativeElement.value = '';
+      this.phoneInputRef.nativeElement.value = '';
+    }
   }
 }
